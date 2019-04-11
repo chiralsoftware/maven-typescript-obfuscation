@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Obfuscation test project</title>
+        <meta charset="utf-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="code.js"></script>
+        <link rel="stylesheet" href="stylesheets/style.css"/>
+    </head>
+    <body>
+        <h1>Obfuscation test project</h1>
+        
+        <p id="clickme">Click me!</p>
+
+        <script>
+            function clicked() {
+                 console.log("The result is: " + greeter("Joe Smith"));
+            }
+            function initialize() {
+                 $( "#clickme" ).click(clicked);
+            }
+            $(document).ready(initialize);
+        </script>
+
+    </body>
+</html>

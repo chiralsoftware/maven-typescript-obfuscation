@@ -1,0 +1,9 @@
+/* Sample SASS file */
+
+$font-stack:    Helvetica, sans-serif;
+$favoite-color: aliceblue;
+
+html {
+    font-family: $font-stack;
+    background-color: $favoite-color;
+}
