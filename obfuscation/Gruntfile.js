@@ -14,17 +14,9 @@ module.exports = function (grunt) {
         },
         // ----- TypeScript compilation
         //  See https://npmjs.org/package/grunt-typescript
-        typescript: {
-            // Compiles the code into a single file. Also generates a typescript declaration file
-            compile: {
-                src: ['<%= dir.source_ts %>/**/*.ts'],
-                dest: '<%= dir.target_js %>',
-                options: {
-                    base_path: '<%= dir.source_ts %>',
-                    target: 'ES6',
-                    declaration: false,
-                    comments: false
-                }
+        ts: {
+           default : {
+                tsconfig: 'src/main/resources/static/app/tsconfig.json'
             }
         },
         obfuscator: {
@@ -35,12 +27,12 @@ module.exports = function (grunt) {
                 identifierNamesGenerator: "mangled"
             },
             task1: {
-                files: { 'target/js/code.js': [ 'target/js/greeter.js'] }
+                files: { 'src/main/resources/static/app/js/code.js': [ 'src/main/resources/static/app/js/build.js'] }
             }
         }
     });
     // ----- Setup tasks
-    grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-obfuscator');
-    grunt.registerTask('default', ['typescript:compile', 'obfuscator']);
+    grunt.registerTask('default', ['ts', 'obfuscator']);
 };
